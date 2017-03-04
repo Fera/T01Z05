@@ -1,0 +1,61 @@
+body
+{
+    font-family: Arial;
+    font-size: 14px;
+
+    background: #fff;
+}
+
+
+
+.menu-btn,
+.add-btn,
+.button
+{
+    cursor: pointer;
+}
+
+ul.output
+{
+    width: 800px;
+
+    list-style: none;
+
+    border: 1px solid #999;
+}
+
+ul.output li
+{
+    margin-left: -40px;
+    padding: 10px;
+}
+
+ul.output li:nth-child(odd)
+{
+    background: #f0f0f0;
+}
+
+span.name
+{
+    display: inline-block;
+
+    width: 250px;
+}
+
+span.username
+{
+    display: inline-block;
+
+    width: 150px;
+}
+
+span.phone
+{
+    display: inline-block;
+
+    width: 200px;
+}
+
+.error {
+    color:#ff0000;
+}
