@@ -1,4 +1,4 @@
-(function($) {
+(function($, window, document, undefined) {
 
    $(document).ready(function() {
 
@@ -78,4 +78,4 @@
         });
 
     });
-})(jQuery);
+})(jQuery, window, document);
