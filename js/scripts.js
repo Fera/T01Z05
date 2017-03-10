@@ -16,6 +16,8 @@
 
             var that = $(this);
 
+            that.attr('disabled', true).text("DANE POBRANO"); // wyłącz przycisk pobierania danych i zmień mu text   
+
             $.ajax({ // korzystamy z metody ajax
                 url: "https://jsonplaceholder.typicode.com/users", //wysyłamy zapytanie pod podany url
                 method: "GET", // metodą GET
@@ -23,44 +25,19 @@
                
                 success: function(response){ // w razie sukcesu ma zadziałać taka funkcja
 
-                    console.log(response);     
+                    $.each(response, function(i,value){ // weź wszystkie odpowiedzi wg indexu i wartości
 
-                    // $.each(response, function(i,value){ // weź wszystkie odpowiedzi wg indexu i wartości
-
-                    //     var name = '<span class="name">' + value.name + '</span>';
-                    //     var username = '<span class="username">' + value.username + '</span>';
-                    //     var phone = '<span class="phone">' + value.phone + '</span>';
-                    //     var email = '<span class="email">' + value.email + '</span>';
-
-                    //     $("<li></li>",{ // stwórz obiekt li
-                    //         "id":value.id, // nadaj mu id o wartości id z danych
-                    //         // "text": value.name + ', ' + value.username + ', ' + value.phone + ', ' + value.email // wstaw do niego wymienione wartości danych
-                    //     }).append(name, username, phone, email).appendTo(output); // to wszystko wstaw do środka elementu output
-
-                    // });    
-                    
-                    // To samo co wyżej tylko z zastosowaniem metory .map                    
-
-                    $.map(response, function(val, i){
-                        var name = '<span class="name">' + val.name + '</span>',
-                            username = '<span class="username">' + val.username + '</span>',
-                            phone = '<span class="phone">' + val.phone + '</span>',
-                            email = '<span class="email">' + val.email + '</span>',
-
+                        var name = '<span class="name">' + value.name + '</span>',
+                            username = '<span class="username">' + value.username + '</span>',
+                            phone = '<span class="phone">' + value.phone + '</span>',
+                            email = '<span class="email">' + value.email + '</span>',
                             data = name + username + phone + email;
+                            li = '<li></li>';
 
-                        if ($(name, username, phone, email) === ''){
-
-                            return 'nie podano';
-                        }
-
-                        $("<li>").append(data).appendTo(output);
-                    });            
-                                
+                        $(li).append(data).appendTo(output); // to wszystko wstaw do środka elementu output
+                    });                   
 
                     $(output).fadeIn(500, 'linear');  // pokaż output
-                    that.attr('disabled', true).text("DANE POBRANO"); // wyłącz przycisk pobierania danych i zmień mu text              
-
                 },
 
                 error: function(errorThrown) { // w razie błędu ma się to zadziać
