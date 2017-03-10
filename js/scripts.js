@@ -31,10 +31,10 @@
                             username = '<span class="username">' + value.username + '</span>',
                             phone = '<span class="phone">' + value.phone + '</span>',
                             email = '<span class="email">' + value.email + '</span>',
-                            data = name + username + phone + email;
-                            li = '<li></li>';
+                            data = name + username + phone + email,
+                            li = '<li>' + data + '</li>';
 
-                        $(li).append(data).appendTo(output); // to wszystko wstaw do środka elementu output
+                        $(li).appendTo(output); // to wszystko wstaw do środka elementu output
                     });                   
 
                     $(output).fadeIn(500, 'linear');  // pokaż output
